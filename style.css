@@ -1,0 +1,47 @@
+#container
+{
+		margin-inline: auto;
+		width: 680px;
+		margin-block:40px;
+		background-color: #444444;
+}
+#title
+{
+	width: auto;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 3rem;
+	color: #00CC00;
+	margin-inline: 20px;
+	border-bottom: solid 2px #00CC00;
+}
+#game_display
+{
+	width: 640px;
+	height: 480px;
+	margin: 20px;
+}
+#game_state
+{
+	text-align: center;
+	font-size: 15px;
+	color: rgba(255, 255, 255, 0.775);
+}
+p, a
+{
+	color: #00CC00;
+	text-decoration: none;
+}
+a:hover
+{
+	color: #00FF00;
+}
+body
+{
+	background-color: #222222;
+}
+
+* {
+	margin: 0px;
+	padding:0px;	
+}
