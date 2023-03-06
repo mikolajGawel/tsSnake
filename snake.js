@@ -43,13 +43,13 @@ var Snake = /** @class */ (function () {
         if (this.snakeCells[0].x <= -SnakeCell.CELL_SIZE) {
             this.snakeCells[0].x = WIDTH - SnakeCell.CELL_SIZE;
         }
-        else if (this.snakeCells[0].x >= WIDTH + SnakeCell.CELL_SIZE) {
+        else if (this.snakeCells[0].x >= WIDTH) {
             this.snakeCells[0].x = 0;
         }
         if (this.snakeCells[0].y <= -SnakeCell.CELL_SIZE) {
             this.snakeCells[0].y = HEIGHT - SnakeCell.CELL_SIZE;
         }
-        else if (this.snakeCells[0].y >= HEIGHT + SnakeCell.CELL_SIZE) {
+        else if (this.snakeCells[0].y >= HEIGHT) {
             this.snakeCells[0].y = 0;
         }
     };

@@ -54,7 +54,7 @@ class Snake
         {
             this.snakeCells[0].x = WIDTH - SnakeCell.CELL_SIZE;
         }
-        else if(this.snakeCells[0].x >= WIDTH+SnakeCell.CELL_SIZE)
+        else if(this.snakeCells[0].x >= WIDTH)
         {
             this.snakeCells[0].x = 0;
         }
@@ -63,7 +63,7 @@ class Snake
         {
             this.snakeCells[0].y = HEIGHT - SnakeCell.CELL_SIZE;
         }
-        else if(this.snakeCells[0].y >= HEIGHT+SnakeCell.CELL_SIZE)
+        else if(this.snakeCells[0].y >= HEIGHT)
         {
             this.snakeCells[0].y = 0;
         }
