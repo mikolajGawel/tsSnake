@@ -133,7 +133,8 @@ let snake:Snake;
 let snakeFood:SnakeFood;
 let canvas:HTMLCanvasElement;
 let context:CanvasRenderingContext2D;
-let state:HTMLParagraphElement;
+let stateParagraph:HTMLParagraphElement;
+let scoreParagraph:HTMLParagraphElement;
 function load()
 {
     snakeFood = new SnakeFood();
@@ -141,7 +142,8 @@ function load()
     if(firstLoad)
     {
         canvas = document.getElementById("game_display") as HTMLCanvasElement;
-        state = document.getElementById("game_state") as HTMLParagraphElement;
+        scoreParagraph = document.getElementById("game_score") as HTMLParagraphElement;
+        stateParagraph = document.getElementById("game_state") as HTMLParagraphElement;
         context = canvas.getContext("2d") as CanvasRenderingContext2D;
         firstLoad = false;
 
@@ -149,9 +151,12 @@ function load()
 	    context.fillRect(0, 0, WIDTH, HEIGHT);
         snake.draw(context);
         snakeFood.draw(context);
+       
+    }else{
+        stateParagraph.innerHTML = "<h2>";
+        stateParagraph.textContent = "Game Over Press Any Key To Play Again";
+        stateParagraph.style.color = "red";
     }
-   
-    state.textContent = "Press Any Key To Play"
     score = 0;
     
     playing = false;
@@ -183,8 +188,6 @@ function input(key:KeyboardEvent)
 }
 function tick(timeStamp:number)
 {
-	
-
     if(!snake.alive())
     {
         playing = false;
@@ -204,8 +207,10 @@ function tick(timeStamp:number)
         score++;
     }
     snakeFood.draw(context);
+    scoreParagraph.textContent = "score: " + score; 
     
-	state.textContent = "score: " + score;
+    stateParagraph.style.color = "#444444";
+    stateParagraph.textContent = "easter egg here";
     setTimeout(tick,100);
 }
 window.addEventListener("load",load);

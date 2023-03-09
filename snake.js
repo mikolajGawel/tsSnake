@@ -107,13 +107,15 @@ var snake;
 var snakeFood;
 var canvas;
 var context;
-var state;
+var stateParagraph;
+var scoreParagraph;
 function load() {
     snakeFood = new SnakeFood();
     snake = new Snake();
     if (firstLoad) {
         canvas = document.getElementById("game_display");
-        state = document.getElementById("game_state");
+        scoreParagraph = document.getElementById("game_score");
+        stateParagraph = document.getElementById("game_state");
         context = canvas.getContext("2d");
         firstLoad = false;
         context.fillStyle = "black";
@@ -121,7 +123,11 @@ function load() {
         snake.draw(context);
         snakeFood.draw(context);
     }
-    state.textContent = "Press Any Key To Play";
+    else {
+        stateParagraph.innerHTML = "<h2>";
+        stateParagraph.textContent = "Game Over Press Any Key To Play Again";
+        stateParagraph.style.color = "red";
+    }
     score = 0;
     playing = false;
 }
@@ -163,7 +169,9 @@ function tick(timeStamp) {
         score++;
     }
     snakeFood.draw(context);
-    state.textContent = "score: " + score;
+    scoreParagraph.textContent = "score: " + score;
+    stateParagraph.style.color = "#444444";
+    stateParagraph.textContent = "easter egg here";
     setTimeout(tick, 100);
 }
 window.addEventListener("load", load);
